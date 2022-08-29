@@ -52,7 +52,7 @@ public class Main {
     }
   @Test
   public void test() {
-    driver.get("http://192.168.2.234:8007/otdsws/login?RFA=47301004%2D08CE%2D28F5%2DB170%2D0BC0051002D9%3Ahttp%3A%2F%2F192%2E168%2E2%2E234%2Fotcs%2Fcs%2Eexe%3Ffunc%3Dotdsintegration%2Eredirect%26NextURL%3Dhttp%253A%252F%252F192%252E168%252E2%252E234%252Fotcs%252Fcs%252Eexe%253Ffunc%253Dllworkspace&PostTicket=true&PostParams=true&ux_version=1&PreserveFragment=true&logon_style=signin-cs&logon_appname=OpenText%20Extended%20ECM%20CE%2022%2E2");
+    driver.get("http://192.168.2.234/otcs/cs.exe?func=llworkspace");
     driver.manage().window().setSize(new Dimension(1920, 1080));
 
   }
