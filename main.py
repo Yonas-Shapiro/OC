@@ -5,13 +5,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
-from languages import switchLanguage
+#from Setup import switchLanguage, multilingualize
+import Setup
 
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
-#driver.close()
+
 vmNum = input("VM num: ")
 site = "http://192.168.2." + str(vmNum) + "/otcs/cs.exe?func=llworkspace"
 
@@ -24,6 +26,10 @@ driver.find_element(By.ID, "otds_password").send_keys(Keys.RETURN)
 
 print(driver.title)
 
+Setup.initiate(driver, site)
 
+Setup.multilingualize()
+time.sleep(2)
+Setup.switchLanguage("fr")
+time.sleep(3)
 
-switchLanguage(driver, "de", site)
