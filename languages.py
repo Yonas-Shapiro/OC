@@ -23,3 +23,11 @@ def switchLanguage(driver, newLang, site):
     Select(driver.find_element(By.ID, "metadataLang")).select_by_value(val)
 
     driver.find_element(By.CLASS_NAME, "saveButton").click()
+
+    __goBack(driver)
+
+
+def __goBack(driver):
+    driver.back()
+    driver.back()
+    driver.find_element(By.TAG_NAME, "body").send_keys(Keys.COMMAND + "r")
