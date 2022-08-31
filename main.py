@@ -27,9 +27,7 @@ driver.find_element(By.ID, "otds_password").send_keys(Keys.RETURN)
 print(driver.title)
 
 Setup.initiate(driver, site)
-
 Setup.multilingualize()
-time.sleep(2)
-Setup.switchLanguage("fr")
-time.sleep(3)
+
+Setup.check()
 

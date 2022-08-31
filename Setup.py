@@ -1,5 +1,4 @@
 
-from contextlib import nullcontext
 from lib2to3.pgen2 import driver
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -8,17 +7,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import time
+from Running import setup
 
 driver = None
 site = None
 
+# Sets up the necessary variables, allowing for fewer parametres in other functions
 def initiate(driver1, site1):
     global driver
     driver = driver1
     global site 
     site = site1
+    #setup(driver1, site1)
     #print(site)
 
+# Switches the language
 def switchLanguage(newLang):
     settings = site.replace("llworkspace", "personal.settings")
     driver.get(settings)
@@ -38,7 +41,7 @@ def switchLanguage(newLang):
 
     __goBack()
 
-
+# Goes back 
 def __goBack():
     driver.back()
     driver.back()
@@ -77,6 +80,21 @@ def multilingualize():
         goHome()
     except:
         print("Took too long to save multilingualization")
+
+
+def goHome():
+    driver.get(site)
+
+
+def check():
+    temp = input("Continue? y/n")
+    temp = temp.lower()
+    if (temp == "n"):
+        quit = input("Quit? y/n")
+        quit = quit.lower()
+        if (quit == "y"): driver.quit()
+        else: qwert = input("Press enter to continue")
+
 
 
 def multilingualizeLong():
@@ -142,9 +160,3 @@ def multilingualizeLong():
         goHome()
     except:
         print("Took too long to save multilingualization")
-
-
-
-
-def goHome():
-    driver.get(site)
