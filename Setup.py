@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import time
-from Running import setup
+import Running
 
 driver = None
 site = None
@@ -18,7 +18,7 @@ def initiate(driver1, site1):
     driver = driver1
     global site 
     site = site1
-    #setup(driver1, site1)
+    Running.setup(driver1, site1)
     #print(site)
 
 # Switches the language
