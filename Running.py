@@ -21,6 +21,8 @@ def setup(driver1, site1):
 
 def classicRun(SDL, UDL, earlyExit):
     Setup.goHome()
+    global num
+    num += 1
 
     try:
         wait = WebDriverWait(driver, 10).until(
@@ -60,3 +62,9 @@ def classicRun(SDL, UDL, earlyExit):
         Setup.check()
 
     driver.find_element(By.ID, "meta_name_en_US").clear()
+
+    if (SDL):
+        string = "BW " + str(num)
+        driver.find_element(By.ID, "meta_name_en_US").send_keys(string + " EN")
+        driver.find_element(By.ID, "ui-id-2")
+        driver.find_element(By.ID, "meta_comment_en_US").send_keys(string + Keys.ENTER + "EN")
