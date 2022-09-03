@@ -68,3 +68,20 @@ def classicRun(SDL, UDL, earlyExit):
         driver.find_element(By.ID, "meta_name_en_US").send_keys(string + " EN")
         driver.find_element(By.ID, "ui-id-2")
         driver.find_element(By.ID, "meta_comment_en_US").send_keys(string + Keys.ENTER + "EN")
+
+    if (UDL):
+        driver.find_element(By.ID, "meta_name_fr").send_keys(string + " FR")
+        driver.find_element(By.ID, "ui-id-2")
+        driver.find_element(By.ID, "meta_comment_fr").send_keys(string + Keys.ENTER + "FR")
+        
+    driver.find_element(By.ID, "meta_comment_ja_JP").send_keys(Keys.TAB + Keys.ENTER)
+    driver.find_element(By.NAME, "Next").click()
+
+    try:
+        wait = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "_1_1_2_1Global"))
+        )
+        driver.find_element(By.ID, "_1_1_2_1Global").click()
+    except:
+        print("BW Metadata didn't load")
+        Setup.check()
