@@ -3,12 +3,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+#import time
 
 #from Setup import switchLanguage, multilingualize
 import Setup
+import Running
 
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
@@ -27,7 +28,7 @@ driver.find_element(By.ID, "otds_password").send_keys(Keys.RETURN)
 print(driver.title)
 
 Setup.initiate(driver, site)
-Setup.multilingualize()
-
+#Setup.multilingualize()
+Running.classicRun(True, True, False)
 Setup.check()
 
