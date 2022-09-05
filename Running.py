@@ -125,4 +125,4 @@ def classicRun(SDL, UDL, earlyExit):
            EC.presence_of_element_located((By.NAME, "BUTTON"))
         )
     except:
-        
+        if(num)
