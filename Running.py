@@ -1,5 +1,6 @@
 #from asyncio.streams import _ClientConnectedCallback
 from lib2to3.pgen2 import driver
+from re import L
 #from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -125,4 +126,27 @@ def classicRun(SDL, UDL, earlyExit):
            EC.presence_of_element_located((By.NAME, "BUTTON"))
         )
     except:
-        if(num)
+        if(num >= 7 and num <= 10):
+            try:
+                driver.find_element(By.PARTIAL_LINK_TEXT, "/otcs/cs.exe?func=ll&objaction=wizard&objType=848&cacheid=1046137590&pare…2Fcs%2Eexe%3Ffunc%3Dll%26objId%3D25060%26objAction%3Dbrowse%26viewType%3D1").click()
+            except:
+                print("No 'Continue' or Wizard issue")
+                Setup.check()
+        else:
+            print("Continue button not showing")
+            Setup.check()
+
+
+
+def quickTest():
+    driver.get("http://192.168.2.234/otcs/cs.exe?func=ll&objId=78163&objAction=browse&viewType=1")
+    
+    try:
+        wait = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "otsapwkspPanel_panelTitle"))
+        )
+    except:
+        print("Error")
+        driver.quit()
+    
+    print(driver.find_element(By.ID, "sidebarwidget1").text)

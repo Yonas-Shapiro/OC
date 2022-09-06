@@ -29,6 +29,8 @@ print(driver.title)
 
 Setup.initiate(driver, site)
 #Setup.multilingualize()
-Running.classicRun(True, True, False)
-Setup.check()
+#Running.classicRun(True, True, False)
+#Setup.check()
+Running.quickTest()
+
 
